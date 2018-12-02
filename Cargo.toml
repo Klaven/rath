@@ -3,4 +3,12 @@ name = "rath"
 version = "0.1.0"
 authors = ["Marek <marek.counts@outlook.com>"]
 
+[lib]
+name = "rathlib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rath"
+path = "src/main.rs"
+
 [dependencies]
