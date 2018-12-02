@@ -9,6 +9,6 @@ path = "src/lib.rs"
 
 [[bin]]
 name = "rath"
-path = "src/main.rs"
+path = "src/bin/main.rs"
 
 [dependencies]
