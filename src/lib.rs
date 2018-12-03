@@ -1,10 +1,10 @@
-
+pub mod geometry;
 pub mod rath {
-	pub fn print() {
-		println!("Hello, world!");
+    pub fn print() {
+        println!("Hello, world!");
 
-		let x = 1;
+        let x = 1;
 
-		println!("{}",x );
-	}
+        println!("{}", x);
+    }
 }
