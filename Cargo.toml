@@ -1,7 +1,8 @@
 [package]
 name = "rath"
 version = "0.1.0"
-authors = ["Marek <marek.counts@outlook.com>"]
+authors = ["Marek Counts <marek.counts@outlook.com>"]
+edition = "2018"
 
 [lib]
 name = "rathlib"
