@@ -1,6 +1,7 @@
-mod convex_hull;
+pub mod convex_hull;
+pub mod point;
 
-use self::convex_hull::Point;
+use self::point::Point;
 
 pub fn convex_hull() {
     println!("calculating the convex hull");

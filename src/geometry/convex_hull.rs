@@ -1,16 +1,18 @@
-// A struct with two fields
-#[derive(Debug, Copy, Clone)]
-pub struct Point {
-    pub x: i32,
-    pub y: i32,
-}
+
+
+use super::point::Point;
 
 pub fn calc_convex_hull(x: Vec<Point>) {
     println!("{:?}", x);
-    let y = sort_points(x);
+    let mut y = x.to_vec();
+    y.sort_by(
+        |a, b| { 
+            if a.x != b.x {
+                return a.x.cmp(&b.x);
+            }
+            return a.y.cmp(&b.y);
+        });
     println!("{:?}", y);
+
 }
 
-pub fn sort_points(x: Vec<Point>) -> Vec<Point> {
-    return vec![x[1], x[2]];
-}
