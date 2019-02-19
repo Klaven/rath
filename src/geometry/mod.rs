@@ -15,6 +15,7 @@ pub fn convex_hull() {
         Point { x: 9.0, y: 30.0 },
         Point { x: 21.0, y: 10.0 },
         Point { x: 33.0, y: 21.0 },
+        Point { x: 32.0, y: 14.0 },
         Point { x: 10.0, y: 3.0 },
     ];
 
