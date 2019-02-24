@@ -8,13 +8,12 @@ pub fn calc_convex_hull(x: Vec<Point>) {
     let mut y = x.to_vec();
 
     //Step 1) sort list
-    y.sort_by(
-        |a, b| { 
-            if a.x != b.x {
-                return a.x.partial_cmp(&b.x).unwrap();
-            }
-            return a.y.partial_cmp(&b.y).unwrap();
-        });
+    y.sort_by(|a, b| {
+        if a.x != b.x {
+            return a.x.partial_cmp(&b.x).unwrap();
+        }
+        return a.y.partial_cmp(&b.y).unwrap();
+    });
     println!("{:?}", y);
 
     let mut upper = Vec::<Point>::new();
@@ -24,9 +23,9 @@ pub fn calc_convex_hull(x: Vec<Point>) {
     upper.push(y[1].clone());
 
     for i in 2..y.len() {
-        if !is_right_hand_turn(&upper[upper.len()-2], &upper[upper.len()-1], &y[i]) {
-            upper.remove(upper.len()-1);
-            if upper.len() < 2  || i == y.len()-1 {
+        if !is_right_hand_turn(&upper[upper.len() - 2], &upper[upper.len() - 1], &y[i]) {
+            upper.remove(upper.len() - 1);
+            if upper.len() < 2 || i == y.len() - 1 {
                 upper.push(y[i].clone());
             }
         } else {
@@ -40,37 +39,38 @@ pub fn calc_convex_hull(x: Vec<Point>) {
     lower.push(y[1].clone());
 
     for i in 2..y.len() {
-        if !is_right_hand_turn(&lower[lower.len()-2], &lower[lower.len()-1], &y[i]) {
-            lower.remove(lower.len()-1);
-            if lower.len() < 2 || i == y.len()-1 {
+        if !is_right_hand_turn(&lower[lower.len() - 2], &lower[lower.len() - 1], &y[i]) {
+            lower.remove(lower.len() - 1);
+            if lower.len() < 2 || i == y.len() - 1 {
                 lower.push(y[i].clone());
             }
-
         } else {
             lower.push(y[i].clone());
         }
     }
 
-    lower.remove(lower.len()-1);
+    lower.remove(lower.len() - 1);
     lower.remove(0);
 
     upper.append(&mut lower);
 
     println!("results: {:?}", upper);
-
-
 }
 
 fn is_right_hand_turn(p1: &Point, p2: &Point, p3: &Point) -> bool {
-
     let m = Matrix3::<f64>::new(
-        1.0, p1.x as f64, p1.y as f64,
-        1.0, p2.x as f64, p2.y as f64,
-        1.0, p3.x as f64, p3.y as f64);
+        1.0,
+        p1.x as f64,
+        p1.y as f64,
+        1.0,
+        p2.x as f64,
+        p2.y as f64,
+        1.0,
+        p3.x as f64,
+        p3.y as f64,
+    );
 
     let lu = LU::new(m.clone());
 
     return lu.determinant() > 0.0;
-
 }
-

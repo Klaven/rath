@@ -1,5 +1,3 @@
-
-
 use rathlib::geometry;
 
 fn main() {
