@@ -19,5 +19,6 @@ pub fn convex_hull() {
         Point { x: 10.0, y: 3.0 },
     ];
 
+    //Should return a list of point instead of printing thme out
     convex_hull::calc_convex_hull(x);
 }
