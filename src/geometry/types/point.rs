@@ -5,8 +5,8 @@ pub struct Point <T> {
 }
 
 //TODO: is this useful? I don't think so? maybe?
-impl Point<f64> {
-    pub fn new(x: f64, y: f64) -> Self {
+impl <T> Point<T> {
+    pub fn new(x: T, y: T) -> Self {
         Point { x, y }
     }
 }
