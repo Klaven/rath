@@ -2,9 +2,11 @@ pub mod convex_hull;
 pub mod types;
 
 use self::types::Point as OtherPoint;
+use self::types::LineSegment as OtherLineSegment;
 
 // Should I do this for all types to remove the ::types:: requirement?
 pub type Point<T> = OtherPoint<T>;
+pub type LineSegment<T> = OtherLineSegment<T>;
 
 // TODO: Take vector of points
 pub fn convex_hull() {
