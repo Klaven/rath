@@ -3,7 +3,7 @@ extern crate nalgebra as na;
 use super::types::Point;
 use na::{Matrix3, LU};
 
-pub fn calc_convex_hull(x: Vec<Point>) {
+pub fn calc_convex_hull(x: Vec<Point<f64>>) {
     println!("{:?}", x);
     let mut y = x.to_vec();
 
@@ -16,8 +16,8 @@ pub fn calc_convex_hull(x: Vec<Point>) {
     });
     println!("{:?}", y);
 
-    let mut upper = Vec::<Point>::new();
-    let mut lower = Vec::<Point>::new();
+    let mut upper = Vec::<Point<f64>>::new();
+    let mut lower = Vec::<Point<f64>>::new();
 
     upper.push(y[0].clone());
     upper.push(y[1].clone());
@@ -57,11 +57,11 @@ pub fn calc_convex_hull(x: Vec<Point>) {
     println!("results: {:?}", upper);
 }
 
-fn is_right_hand_turn(p1: &Point, p2: &Point, p3: &Point) -> bool {
+fn is_right_hand_turn(p1: &Point<f64>, p2: &Point<f64>, p3: &Point<f64>) -> bool {
     let m = Matrix3::<f64>::new(
         1.0,
-        p1.x as f64,
-        p1.y as f64,
+        p1.x,
+        p1.y,
         1.0,
         p2.x as f64,
         p2.y as f64,

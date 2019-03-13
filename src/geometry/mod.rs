@@ -4,12 +4,12 @@ pub mod types;
 use self::types::Point as OtherPoint;
 
 // Should I do this for all types to remove the ::types:: requirement?
-pub type Point = OtherPoint;
+pub type Point<T> = OtherPoint<T>;
 
+// TODO: Take vector of points
 pub fn convex_hull() {
     println!("calculating the convex hull");
 
-    //Should read in file or something.
     let x = vec![
         Point { x: 1.0, y: 1.0 },
         Point { x: 2.0, y: 2.0 },
@@ -25,3 +25,5 @@ pub fn convex_hull() {
     //Should return a list of point instead of printing thme out
     convex_hull::calc_convex_hull(x);
 }
+
+// TODO: make func that takes file.
