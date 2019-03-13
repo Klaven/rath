@@ -1,7 +1,10 @@
 pub mod convex_hull;
-pub mod point;
+pub mod types;
 
-use self::point::Point;
+use self::types::Point as OtherPoint;
+
+// Should I do this for all types to remove the ::types:: requirement?
+pub type Point = OtherPoint;
 
 pub fn convex_hull() {
     println!("calculating the convex hull");
